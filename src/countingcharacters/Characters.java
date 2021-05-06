@@ -6,22 +6,21 @@ import java.util.ArrayList;
 
 public class Characters {
     public static void main(String[] args) {
+        //initialize input from user
         Scanner input = new Scanner(System.in);
-        System.out.println("What letter do you want to count in a quote from Hidden Figures?: ");
-        String answer = input.nextLine();
-        char n = answer.charAt(0);
-    String hiddenFigure = "If the product of two terms is zero then common sense says at least one of the two terms " +
-            "has to be zero to start with. So if you move all the terms over to one side, you can put the quadratics " +
-            "into a form that can be factored allowing that side of the equation to equal zero. Once you’ve done that, " +
-            "it’s pretty straightforward from there.";
-        input.close();
-        ArrayList<Character> count = new ArrayList<>();
-        char[] charactersInString = hiddenFigure.toCharArray();
-        for (char c : charactersInString) {
-            if (c == n) {
-                count.add(c);
-            }
-        }
-        System.out.println("There were " + count.size() + " instances.");
+        System.out.println("What quote do you like best?: ");
+        String answer1 = input.nextLine().toLowerCase(); // user quote
+        System.out.println("What letter do you want to count in your quote?: ");
+        String answer2 = input.nextLine().toLowerCase(); // user letter
+        char n = answer2.charAt(0); // convert letter to char
+        input.close(); // close scanner
+        ArrayList<Character> count = new ArrayList<>(); //initialize new arraylist
+        char[] charactersInString = answer1.toCharArray(); // turn that quote into a char array
+        for (char c : charactersInString) { // for each character in quote array
+            if (c == n) { // if character = user selected letter
+                count.add(c); // add that letter to my new count arraylist
+            } // end if
+        } // end for each
+        System.out.println("There were " + count.size() + " instances of " + n + "."); // sum of count arraylist using .size() method
     } // end main
 } // end class
